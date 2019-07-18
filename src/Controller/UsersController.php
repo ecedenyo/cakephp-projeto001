@@ -57,7 +57,28 @@ class UsersController extends AppController
                 return $this->redirect(['action' => 'index']);
             } else {
                 /** Mensaje en caso de haber errores */
-                $this->Flash->success(__('Erro: Usuário não foi cadastrado com sucesso'));
+                $this->Flash->error(__('Erro: Usuário não foi cadastrado com sucesso'));
+            }
+        }
+
+        $this->set(compact('user'));
+    }
+
+    public function edit($id = null)
+    {
+        $user = $this->Users->get($id);
+
+        if($this->request->is(['post', 'put'])){
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+
+            if($this->Users->save($user)){
+                /** Mensaje en caso de no haber errores */
+                $this->Flash->success(__('Usuário editado com sucesso'));
+                
+                return $this->redirect(['action' => 'index']);
+            } else {
+                /** Mensaje en caso de haber errores */
+                $this->Flash->error(__('Erro: Usuário não foi editado com sucesso'));
             }
         }
 

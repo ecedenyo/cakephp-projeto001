@@ -4,7 +4,7 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
+            <th>Nome</th>
             <th>E-mail</th>
             <th>Ações</th>
         </tr>
@@ -17,7 +17,7 @@
             <td><?php echo $usuario->email ?></td>
             <td>
                 <?php echo $this->Html->link(('Ver'), ['action' => 'view', $usuario->id]) ?>
-                Editar 
+                <?php echo $this->Html->link(('Editar'), ['action' => 'edit', $usuario->id]) ?>
                 Apagar
             </td>
         </tr>
