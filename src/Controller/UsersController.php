@@ -18,13 +18,20 @@ class UsersController extends AppController
             ]
         ];
 
-        // Consultando datos de la BD, sin paginar
+        /** Consultando datos de la BD, sin paginar */
         // $usuarios = $this->Users->find()->all();
         
-        // Consultando datos de la BD, paginando
+        /** Consultando datos de la BD, paginando */
         $usuarios = $this->paginate($this->Users);
 
         // $this->set(['usuarios' => $usuarios]);
         $this->set(compact('usuarios')); // mediante esta sentencia se pueden enviar a la Vista tantas variables como sean necesarias como parámetros de la función compact(...)
+    }
+
+    public function view($id = null)
+    {
+        $usuario = $this->Users->get($id);
+
+        $this->set(['usuario' => $usuario]);
     }
 }

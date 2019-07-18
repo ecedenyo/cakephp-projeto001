@@ -6,6 +6,7 @@ use Cake\ORM\Entity;
 
 class User extends Entity
 {
+    /** Especificar campos a ser accesibles */
     public $_accessible = [
         /** se asigna valor de true para todos los campos que se desean
          * obtener de la BD */
