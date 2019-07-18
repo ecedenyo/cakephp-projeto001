@@ -35,7 +35,7 @@ class ArticlesCatsTable extends Table
         parent::initialize($config);
 
         $this->setTable('articles_cats');
-        $this->setDisplayField('id');
+        $this->setDisplayField('nome_cate_artigo');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
