@@ -24,6 +24,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<?php echo $this->Html->link(__('Cadastrar usuário'), ['action' => 'add']) ?>
+
 <div class="paginator">
     <ul class="pagination">
         <?php echo $this->Paginator->first(html_entity_decode('&laquo; ') . __('Primeira')); ?>
