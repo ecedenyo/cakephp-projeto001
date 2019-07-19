@@ -48,7 +48,8 @@ $cakeDescription = 'Administrativo';
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Perfil</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                        <!-- <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a> -->
+                        <?= $this->Html->link(__('Sair'), ['controller' => 'Users', 'action' => 'logout'], ['class' => 'dropdown-item']) ?>
                     </div>
                 </li>
             </ul>                
@@ -80,7 +81,8 @@ $cakeDescription = 'Administrativo';
                 <li><a href="#"> Item 2</a></li>
                 <li><a href="#"> Item 3</a></li>
                 <li class="active"><a href="#"> Item 4</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                <!-- <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a></li> -->
+                <li><?= $this->Html->link(__('Sair'), ['controller' => 'Users', 'action' => 'logout'], ['class' => 'dropdown-item']) ?></li>
             </ul>
         </nav>
 

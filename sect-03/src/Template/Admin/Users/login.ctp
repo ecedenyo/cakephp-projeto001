@@ -4,6 +4,8 @@
     </div>
     <h1 class="h3 mb-3 font-weight-normal">Área Restrita</h1>
 
+    <?= $this->Flash->render() ?>
+
     <div class="form-group">
         <label>Usuário</label>
         <?= $this->Form->control('username', ['class' => 'form-control', 'placeholder' => 'Digite o usuário', 'label' => false]) ?>

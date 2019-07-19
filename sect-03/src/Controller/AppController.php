@@ -53,7 +53,8 @@ class AppController extends Controller
             'logoutRedirect' => [
                 'controller' => 'users',    // indicar adónde redireccionar (controlador) luego de iniciar sesión
                 'action' => 'login'         // ... vista
-            ]
+            ],
+            'authError' => false
         ]);
 
         /*
