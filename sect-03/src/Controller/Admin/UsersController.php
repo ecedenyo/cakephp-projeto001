@@ -103,4 +103,21 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function login()
+    {
+        if($this->request->is('post')){
+            /** Identificar si el usuario existe */
+            $user = $this->Auth->identify();
+            if($user){
+                $this->Auth->setUser($user);
+                $this->redirect($this->Auth->redirectUrl());
+            }
+        }
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
+    }
 }

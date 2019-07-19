@@ -45,6 +45,16 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [      // Bloquear acceso a pantallas en esta carpeta contra inicio de sesión
+            'loginRedirect' => [
+                'controller' => 'welcome',  // indicar adónde redireccionar (controlador) luego de iniciar sesión
+                'action' => 'index'         // ... vista
+            ],
+            'logoutRedirect' => [
+                'controller' => 'users',    // indicar adónde redireccionar (controlador) luego de iniciar sesión
+                'action' => 'login'         // ... vista
+            ]
+        ]);
 
         /*
          * Enable the following component for recommended CakePHP security settings.
