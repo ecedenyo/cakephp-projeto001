@@ -62,4 +62,19 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
     }
+
+    /** Renderear pantalla de login con un layout diferente */
+    public function beforeRender(Event $event)
+    {
+        $prefix = null;
+        if($this->request->getParam(['prefix']) !== null){
+            $prefix = $this->request->getParam(['prefix']);
+        }
+
+        if($prefix == 'admin'){
+            if(($this->request->getParam(['action']) !== null) AND ($this->request->getParam(['action']) == 'login')){
+                $this->viewBuilder()->setLayout('login');
+            }
+        }
+    }
 }
