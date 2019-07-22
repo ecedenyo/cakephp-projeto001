@@ -1,30 +1,26 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Articles'), ['controller' => 'Articles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Article'), ['controller' => 'Articles', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
-    </ul>
-</nav>
-<div class="users index large-9 medium-8 columns content">
-    <h3><?= __('Users') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+<div class="d-flex">
+    <div class="mr-auto p-2">
+        <h2 class="display-4 titulo">Listar Usuários</h2>
+    </div>
+    <a href="#">
+        <div class="p-2">
+            <button class="btn btn-outline-success btn-sm">
+                Cadastrar
+            </button>
+        </div>
+    </a>
+</div>
+<?= $this->Flash->render() ?>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('email') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('username') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th><?= $this->Paginator->sort('id') ?></th>
+                <th>Nome</th>
+                <th class="d-none d-sm-table-cell">E-Mail</th>
+                <th class="d-none d-lg-table-cell">Data do Cadastro</th>
+                <th class="text-center"><?= __('Ações') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -32,11 +28,9 @@
             <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->name) ?></td>
-                <td><?= h($user->email) ?></td>
-                <td><?= h($user->username) ?></td>
-                <td><?= h($user->created) ?></td>
-                <td><?= h($user->modified) ?></td>
-                <td class="actions">
+                <td class="d-none d-sm-table-cell"><?= h($user->email) ?></td>
+                <td class="d-none d-lg-table-cell"><?= h($user->created) ?></td>
+                <td class="text-center">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
@@ -45,6 +39,10 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+</div>
+
+<div class="users index large-9 medium-8 columns content">
+    <h3><?= __('Users') ?></h3>
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>

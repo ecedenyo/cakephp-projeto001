@@ -38,7 +38,7 @@ $cakeDescription = 'Administrativo';
         <a class="sidebar-toggle text-light mr-3">
             <span class="navbar-toggler-icon"></span>
         </a>
-        <a class="navbar-brand" href="#">Celke</a>
+        <a class="navbar-brand" href="#">Test</a>
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
@@ -88,7 +88,6 @@ $cakeDescription = 'Administrativo';
 
         <div class="content p-1">
             <div class="list-group-item">
-                <?= $this->Flash->render() ?>
                 <?= $this->fetch('content') ?>
             </div>
         </div>
