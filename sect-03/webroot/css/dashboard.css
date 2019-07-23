@@ -61,3 +61,12 @@ body {
 .titulo{
     font-size: 2.0rem !important;
 }
+
+/* On form error */
+.form-error {
+    border: 1px solid red;
+}
+.error-message {
+    color: red;
+    font-size: 0.80rem;
+}

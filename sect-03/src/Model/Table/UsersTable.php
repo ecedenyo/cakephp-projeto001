@@ -78,7 +78,13 @@ class UsersTable extends Table
             ->scalar('password')
             ->maxLength('password', 255)
             ->requirePresence('password', 'create')
-            ->notEmptyString('password');
+            ->notEmptyString('password')
+            ->add('password', [
+                'length' => [
+                    'rule' => ['minlength', 6],
+                    'message' => 'A senha deve ter mínimo 6 caracteres'
+                ]
+            ]);
 
         return $validator;
     }
@@ -92,8 +98,8 @@ class UsersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->isUnique(['username']));
+        $rules->add($rules->isUnique(['email'], 'Este email já está cadastrado'));
+        $rules->add($rules->isUnique(['username'], 'Este nome de usuário já está sendo utilizado'));
 
         return $rules;
     }
