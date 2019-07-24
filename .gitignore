@@ -1,5 +1,6 @@
 # CakePHP specific files #
 ##########################
+/base/
 /sect-*/config/app.php
 /sect-*/config/.env
 /sect-*/logs/*
